@@ -25,6 +25,8 @@ public:
     void set(const char *k, const char* v, const char sep);
     void set(const char *line, const char sep='=');
     void cat(char* buf);
+
+    bool as_bool();
 };
 
 class KeyValSet {
@@ -42,6 +44,7 @@ public:
 
     void parse(char* buf);
     const char* get(const char* key);
+    bool get_bool(const char* key);
 };
 
 #endif

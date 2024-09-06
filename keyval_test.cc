@@ -1,3 +1,4 @@
+#ifndef ARDUINO
 #include <gtest/gtest.h>
 #include "keyval.h"
 
@@ -39,3 +40,16 @@ TEST(KeyValSet, HighLevel)
     kv.parse(buf);
     EXPECT_STREQ("true", kv.get("loop"));
 }
+
+
+// TEST(TypeCasting, Bool)
+// {
+//     char buf[512] = "shuffle=false\nloop=true\n";
+//     KeyValSet kv;
+//     kv.parse(buf);
+//     EXPECT_STREQ("true", kv.get("loop"));
+//     EXPECT_EQ(false, kv.get_bool("shuffle"));
+//     EXPECT_EQ(true, kv.get_bool("loop"));
+// }
+
+#endif

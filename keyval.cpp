@@ -48,6 +48,26 @@ void Entry::cat(char* buf)
     strcat(buf, this->val());
 }
 
+bool Entry::as_bool()
+{
+    // TODO: handle uppercase characters, or "1"
+    return strcmp("true", this->val()) == 0;
+}
+
+bool KeyValSet::get_bool(const char* k) 
+{
+    for (size_t idx=0; idx < this->count; idx++) 
+    {
+        if (strcmp(this->entries[idx].key(), k) == 0)
+        {
+            return this->entries[idx].as_bool();
+        }
+    }
+
+    // Entry not found!
+    return false;
+}
+
 size_t KeyValSet::parse_line(char *line)
 {
     // read a single line out of the input string, and parse a key=val entry from it.
